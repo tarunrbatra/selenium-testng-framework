@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="org.example.TestListener"></listener>
+    </listeners>
+    <test name="Demo">
+        <packages>
+            <package name="org.example.demo"></package>
+        </packages>
+<!--        <classes>-->
+<!--            <class name="org.example.demo.DemoTest"/>-->
+<!--        </classes>-->
+    </test> <!-- Test -->
+
+    <test name="Login">
+        <classes>
+            <class name="org.example.LoginTest">
+                <methods>
+                    <exclude name="desktopTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name = "smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+    </test>
+
+</suite> <!-- Suite -->
